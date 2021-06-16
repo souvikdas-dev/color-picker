@@ -33,13 +33,13 @@
         <input type="text" name="result" id="rgb_val" value="rgb(255,255,255)" readonly>
 
         <label for="red"> Red: </label>
-        <input type="range" name="red" id="red" value="127" min="0" max="255" class="slider">
+        <input type="range" name="red" id="red" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
         <label for="red"> Green: </label>
-        <input type="range" name="green" id="green" value="127" min="0" max="255" class="slider">
+        <input type="range" name="green" id="green" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
         <label for="red"> Blue: </label>
-        <input type="range" name="blue" id="blue" value="127" min="0" max="255" class="slider">
+        <input type="range" name="blue" id="blue" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
         <button id="copy-btn" onclick="copy()"> Copy </button>
     </div>
@@ -57,18 +57,12 @@
         blue.value = randomNo(0, 255);
         show_color();
 
-
         function show_color() {
             // var color = rgb(red, green, blue);
             color = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
             output.value = color;
             document.body.style.backgroundColor = color;
         }
-
-        document.getElementById("red").addEventListener('input', show_color);
-        document.getElementById("green").addEventListener('input', show_color);
-        document.getElementById("blue").addEventListener('input', show_color);
-
 
         // Function to generate random number 
         function randomNo(min, max) {
