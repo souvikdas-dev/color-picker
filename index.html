@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Color Picker </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="des">
+        <h1>Color Picker</h1>
+        <h4>Beta Version</h4>
+    </div>
+    <div class="box">
+        <label for="rgb_val"> Result: </label>
+        <input type="text" name="result" id="rgb_val" value="rgb(255,255,255)" readonly>
+
+        <label for="red"> Red: </label>
+        <input type="range" name="red" id="red" value="127" min="0" max="255" class="slider">
+
+        <label for="red"> Green: </label>
+        <input type="range" name="green" id="green" value="127" min="0" max="255" class="slider">
+
+        <label for="red"> Blue: </label>
+        <input type="range" name="blue" id="blue" value="127" min="0" max="255" class="slider">
+
+        <button id="copy-btn" onclick="copy()"> Copy </button>
+    </div>
+
+    <script>
+
+        var red = document.getElementById("red");
+        var green = document.getElementById("green");
+        var blue = document.getElementById("blue");
+        var output = document.getElementById("rgb_val");
+        var color;
+
+        red.value = randomNo(0, 255);
+        green.value = randomNo(0, 255);
+        blue.value = randomNo(0, 255);
+        show_color();
+
+
+        function show_color() {
+            // var color = rgb(red, green, blue);
+            color = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
+            output.value = color;
+            document.body.style.backgroundColor = color;
+        }
+
+        document.getElementById("red").addEventListener('input', show_color);
+        document.getElementById("green").addEventListener('input', show_color);
+        document.getElementById("blue").addEventListener('input', show_color);
+
+
+        // Function to generate random number 
+        function randomNo(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function copy() {
+            /* Get the text field */
+            var copyText = document.getElementById("rgb_val");
+
+            /* Select the text field */
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+            /* Copy the text inside the text field */
+            document.execCommand("copy");
+
+            /* Alert the copied text */
+            alert("Copied the text: " + copyText.value);
+        }
+    </script>
+
+    <footer>
+        <code>
+            print("Made with ❤ by Souvik")
+        </code>
+    </footer>
+</body>
+
+</html>
