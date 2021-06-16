@@ -15,10 +15,12 @@
     justify-content: space-evenly;
     background-color: #333;
     height: 50%;
-    width: 20%;
+    /* width: 20%; */
     /* border-radius: 10%; */
-    border-radius: 12% 12% 25% 0% / 10% 10% 25% 0%;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.55)
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12% 12% 25% 0% / 10% 10% 20% 0%;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.65)
 }
 
 #rgb_val {
@@ -99,4 +101,55 @@ footer {
     position: absolute;
     bottom: 20px;
     right: 40px;
+}
+
+@media (min-width: 270px) {
+    .box {
+        height: 50%;
+        width: 90%;
+    }
+}
+
+@media (min-width: 400px) {
+    .box {
+        height: 50%;
+        width: 80%;
+    }
+}
+
+@media (min-width: 470px) {
+    .box {
+        height: 50%;
+        width: 70%;
+    }
+}
+
+@media (min-width: 576px) {
+    .box {
+        width: 320px;
+    }
+}
+
+@media (min-width: 768px) {
+    .box {
+        max-width: 320px;
+    }
+}
+
+@media (min-width: 992px) {
+    .box {
+        max-width: 400px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .box {
+        width: 425px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .box {
+        width: 385px;
+    }
 }
