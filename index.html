@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Ubuntu:wght@300&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+    <script src="script.js"></script>
     <style>
         * {
             margin: 0;
@@ -41,7 +43,7 @@
         <label for="red"> Blue: </label>
         <input type="range" name="blue" id="blue" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
-        <button id="copy-btn" onclick="copy()"> Copy </button>
+        <button id="copy-btn" class="popup" onclick="popup(); copy();"> Copy <span class="popuptext" id="myPopup">Copied to Clipboard 👍</span> </button>
     </div>
 
     <script>
@@ -83,7 +85,7 @@
             document.execCommand("copy");
 
             /* Alert the copied text */
-            alert("Copied the text: " + copyText.value);
+            // alert("Copied the text: " + copyText.value);
         }
     </script>
 
