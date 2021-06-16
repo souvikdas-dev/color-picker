@@ -64,6 +64,12 @@
     border: 1px solid #fff;
     border-radius: 50%;
     cursor: pointer;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
 .slider::-moz-range-thumb {
