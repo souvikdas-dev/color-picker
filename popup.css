@@ -24,7 +24,7 @@
     z-index: 1;
     bottom: 125%;
     left: 50%;
-    margin-left: -80px;
+    transform: translate(-50%);
 }
 
 /* Popup arrow */
@@ -34,7 +34,7 @@
     position: absolute;
     top: 100%;
     left: 50%;
-    margin-left: -5px;
+    transform: translate(-50%);
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
@@ -43,27 +43,35 @@
 /* Toggle this class - hide and show the popup */
 
 .popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
+    /* visibility: visible; */
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
 }
 
 /* Add animation (fade in the popup) */
 
 @-webkit-keyframes fadeIn {
-    from {
+    0% {
         opacity: 0;
     }
-    to {
+    50% {
         opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
 @keyframes fadeIn {
-    from {
+    0% {
         opacity: 0;
     }
-    to {
+    50% {
         opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
     }
 }

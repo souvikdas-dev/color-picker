@@ -43,7 +43,8 @@
         <label for="red"> Blue: </label>
         <input type="range" name="blue" id="blue" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
-        <button id="copy-btn" class="popup" onclick="popup(); copy();"> Copy <span class="popuptext" id="myPopup"> Copied
+        <button id="copy-btn" class="popup" onclick="popup(); copy();"> Copy <span class="popuptext" id="myPopup">
+                Copied
                 to Clipboard 👍 </span> </button>
     </div>
 
@@ -87,6 +88,23 @@
 
             /* Alert the copied text */
             // alert("Copied the text: " + copyText.value);
+            setTimeout(clearSelection, 1);
+        }
+        function clearSelection() {
+            var element = document.activeElement;
+
+            if (element && /INPUT|TEXTAREA/i.test(element.tagName)) {
+                if ('selectionStart' in element) {
+                    element.selectionEnd = element.selectionStart;
+                }
+                element.blur();
+            }
+
+            if (window.getSelection) { // All browsers, except IE <=8
+                window.getSelection().removeAllRanges();
+            } else if (document.selection) { // IE <=8
+                document.selection.empty();
+            }
         }
     </script>
 
