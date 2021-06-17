@@ -15,7 +15,7 @@
     <script src="script.js"></script>
     <style>
         :root {
-            --color: '#000';
+            --dyncolor: '#000';
         }
 
         * {
@@ -54,7 +54,7 @@
     <span id="copy-popup-text"> Copied to Clipboard 👍 </span>
 
     <script>
-        var root = document.querySelector(':root');
+        const root = document.querySelector(':root');
         var red = document.getElementById("red");
         var green = document.getElementById("green");
         var blue = document.getElementById("blue");
@@ -99,11 +99,11 @@
             var br = (0.21 * r) + (0.72 * g) + (0.07 * b);
             // alert("value: " + br);
             document.getElementById("test").innerHTML = br;
-            if (br >= 50) {
-                root.style.setProperty('--color', '#000');
+            if (br < 50) {
+                root.style.setProperty('--dyncolor', '#fff');
             }
             else {
-                root.style.setProperty('--color', '#fff');
+                root.style.setProperty('--dyncolor', '#000');
             }
         }
     </script>
