@@ -51,16 +51,18 @@
     -ms-user-select: none;
     user-select: none;
 }
+
 /* Orange */
+
 .warning {
     border-color: #ff9800;
     color: orange;
-  }
-  
-  .warning:hover {
+}
+
+.warning:hover {
     background: #ff9800;
     color: white;
-  }
+}
 
 #copy-popup-text {
     display: none;
@@ -74,7 +76,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%);
-    z-index: 5;
+    z-index: 999;
+}
+
+@media (max-width: 390px) {
+    #copy-popup-text {
+        font-size: 1rem;
+    }
 }
 
 .slider {
