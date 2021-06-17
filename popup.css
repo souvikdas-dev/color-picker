@@ -13,7 +13,7 @@
 /* The actual popup */
 
 .popup .popuptext {
-    visibility: hidden;
+    display: none;
     width: 160px;
     background-color: #555;
     color: #fff;
@@ -38,44 +38,4 @@
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class - hide and show the popup */
-
-.popup .show {
-    /* visibility: visible; */
-    -webkit-animation: fadeIn 2s;
-    animation: fadeIn 2s;
-}
-
-/* Add animation (fade in the popup) */
-
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-    50% {
-        opacity: 1;
-        visibility: visible;
-    }
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-    50% {
-        opacity: 1;
-        visibility: visible;
-    }
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
 }
