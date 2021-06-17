@@ -1,6 +1,6 @@
 .des {
     margin: 40px 0px 0px 40px;
-    color: var(--color);
+    color: var(--dyncolor);
 }
 
 .des>h4 {
@@ -104,7 +104,7 @@
     padding: 5px 15px;
     font-size: 1rem;
     font-weight: bold;
-    color: var(--color);
+    color: var(--dyncolor);
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
