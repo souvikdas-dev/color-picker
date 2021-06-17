@@ -31,7 +31,7 @@
         <h1>Color Picker</h1>
         <h4>Beta Version</h4>
     </div>
-    <p id="test"></p>
+    <!-- <p id="test"></p> -->
     <div class="box">
         <label for="rgb_val"> Result: </label>
         <input type="text" name="result" id="rgb_val" value="rgb(255,255,255)" readonly>
@@ -93,7 +93,7 @@
 
         function bright(r, g, b) {
             var br = (0.21 * r) + (0.72 * g) + (0.07 * b);
-            document.getElementById("test").innerHTML = br;
+            // document.getElementById("test").innerHTML = br;
             if (br < 56) {
                 root.style.setProperty('--dyncolor', '#fff');
             }
