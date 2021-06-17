@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="popup.css">
     <script src="script.js"></script>
     <style>
+        :root {
+            --color: '#000';
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -31,6 +35,7 @@
         <h1>Color Picker</h1>
         <h4>Beta Version</h4>
     </div>
+    <p id="test"></p>
     <div class="box">
         <label for="rgb_val"> Result: </label>
         <input type="text" name="result" id="rgb_val" value="rgb(255,255,255)" readonly>
@@ -44,12 +49,12 @@
         <label for="red"> Blue: </label>
         <input type="range" name="blue" id="blue" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
-        <button id="copy-btn" class="warning" onclick="copy();"> Copy </button>
+        <button id="copy-btn" onclick="copy();"> Copy </button>
     </div>
     <span id="copy-popup-text"> Copied to Clipboard 👍 </span>
 
     <script>
-
+        var root = document.querySelector(':root');
         var red = document.getElementById("red");
         var green = document.getElementById("green");
         var blue = document.getElementById("blue");
@@ -66,6 +71,9 @@
             color = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
             output.value = color;
             document.body.style.backgroundColor = color;
+            document.getElementById("copy-btn").style.backgroundColor = color;
+            bright(red.value, green.value, blue.value);
+
         }
 
         // Function to generate random number 
@@ -86,6 +94,18 @@
                 }, 500);
             });
         });
+
+        function bright(r, g, b) {
+            var br = (0.21 * r) + (0.72 * g) + (0.07 * b);
+            // alert("value: " + br);
+            document.getElementById("test").innerHTML = br;
+            if (br >= 50) {
+                root.style.setProperty('--color', '#000');
+            }
+            else {
+                root.style.setProperty('--color', '#fff');
+            }
+        }
     </script>
 
     <footer>
