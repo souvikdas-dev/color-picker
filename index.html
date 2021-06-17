@@ -44,10 +44,9 @@
         <label for="red"> Blue: </label>
         <input type="range" name="blue" id="blue" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
-        <button id="copy-btn" class="popup" onclick="copy();"> Copy <span class="popuptext" id="myPopup">
-                Copied
-                to Clipboard 👍 </span> </button>
+        <button id="copy-btn" class="warning" onclick="copy();"> Copy </button>
     </div>
+    <span id="copy-popup-text"> Copied to Clipboard 👍 </span>
 
     <script>
 
@@ -80,10 +79,10 @@
             navigator.clipboard.writeText(color);
         }
         $(document).ready(function () {
-            $(".popup").click(function () {
-                $(".popuptext").fadeIn(1000);
+            $("#copy-btn").click(function () {
+                $("#copy-popup-text").fadeIn(1000);
                 setTimeout(() => {
-                    $(".popuptext").fadeOut(1000);
+                    $("#copy-popup-text").fadeOut(1000);
                 }, 500);
             });
         });
