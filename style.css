@@ -102,7 +102,7 @@
     padding: 0px 5px;
     border-radius: 50px;
     overflow: hidden;
-    background-color: #fff;
+    background-color: whitesmoke;
     font-size: 1.4rem;
     text-align: center;
 }
@@ -115,6 +115,7 @@
     border: none;
     border-radius: 50px;
     outline: none;
+    background-color: transparent;
 }
 
 #copy-code {
@@ -127,6 +128,7 @@
     user-select: none;
     text-align: center;
     outline: none;
+    background-color: transparent;
 }
 
 #copy-code:active, #copy-code:focus {
