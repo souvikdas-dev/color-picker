@@ -98,17 +98,18 @@
     display: flex;
     align-items: center;
     height: 10%;
+    width: 65%;
     padding: 0px 5px;
     border-radius: 50px;
     overflow: hidden;
     background-color: #fff;
     font-size: 1.4rem;
-    /* border: 2px solid red; */
+    text-align: center;
 }
 
 #rgb_val {
     height: 100%;
-    /* width: 60%; */
+    width: 85%;
     font-size: inherit;
     text-align: center;
     border: none;
@@ -117,12 +118,7 @@
 }
 
 #copy-code {
-    /* float: right; */
-    position: absolute;
-    right: 4%;
-    /* font-size: inherit; */
     font-size: calc(100% + 5px);
-    /* font-weight: bold; */
     color: #000;
     cursor: pointer;
     -webkit-user-select: none;
