@@ -49,7 +49,10 @@
         <label for="red"> Blue: </label>
         <input type="range" name="blue" id="blue" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
-        <button id="copy-btn"> Copy </button>
+        <div class="color-option">
+            <button class="color-btn" onclick="shiftHEX()"> HEX </button>
+            <button class="color-btn" onclick="shiftRGB()"> RGB </button>
+        </div>
     </div>
     <span id="copy-popup-text"> Copied to Clipboard 👍 </span>
 
@@ -60,6 +63,7 @@
         var blue = document.getElementById("blue");
         var output = document.getElementById("rgb_val");
         var color;
+        var code = RGB;
 
         red.value = randomNo(0, 255);
         green.value = randomNo(0, 255);
@@ -68,10 +72,10 @@
 
         function show_color() {
             // var color = rgb(red, green, blue);
-            color = 'rgb(' + red.value + ',' + green.value + ',' + blue.value + ')';
+            color = code(red.value, green.value, blue.value);
             output.value = color;
             document.body.style.backgroundColor = color;
-            document.getElementById("copy-code").style.color = color;
+            // document.getElementById("copy-code").style.color = color;
             bright(red.value, green.value, blue.value);
 
         }
@@ -83,7 +87,7 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        function copy() {
+        copy = () => {
             navigator.clipboard.writeText(color);
         }
         $(document).ready(function () {
@@ -104,6 +108,29 @@
             else {
                 root.style.setProperty('--dyncolor', '#000');
             }
+        }
+        shiftHEX = () => {
+            code = HEX;
+            show_color();
+        }
+        shiftRGB = () => {
+            code = RGB;
+            show_color();
+
+        }
+        function RGB(r, g, b) {
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+        function HEX(r, g, b) {
+            r = toHex(parseInt(r));
+            g = toHex(parseInt(g));
+            b = toHex(parseInt(b));
+            return "#" + r + g + b;
+        }
+        function toHex(n) {
+            var hex = n.toString(16);
+            while (hex.length < 2) { hex = "0" + hex; }
+            return hex;
         }
     </script>
 

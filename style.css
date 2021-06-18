@@ -135,21 +135,6 @@
     font-weight: bold;
 }
 
-#copy-btn {
-    /* background-color: rgb(255,95,156); */
-    padding: 5px 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--dyncolor);
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    text-align: center;
-    outline: none;
-}
-
 #copy-popup-text {
     display: none;
     background-color: #666;
@@ -165,11 +150,34 @@
     z-index: 999;
 }
 
+.color-option {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    width: 70%;
+    /* border: 2px solid red; */
+}
+
+.color-btn {
+    /* background-color: rgb(255,95,156); */
+    padding: 5px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    /* color: var(--dyncolor); */
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: center;
+    outline: none;
+}
+
 @media (min-width: 270px) {
     #result {
         font-size: 0.9rem;
     }
-    #copy-btn {
+    .color-btn {
         font-size: 0.7rem;
     }
     #copy-popup-text {
@@ -181,7 +189,7 @@
     #result {
         font-size: 1rem;
     }
-    #copy-btn {
+    .color-btn {
         font-size: 0.7rem;
     }
     #copy-popup-text {
@@ -193,7 +201,7 @@
     #result {
         font-size: 1.05rem;
     }
-    #copy-btn {
+    .color-btn {
         font-size: 0.9rem;
     }
     #copy-popup-text {
@@ -205,7 +213,7 @@
     #result {
         font-size: 1.1rem;
     }
-    #copy-btn {
+    .color-btn {
         font-size: 1rem;
     }
     #copy-popup-text {
