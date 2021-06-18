@@ -40,13 +40,13 @@
             <i class="far fa-copy" id="copy-code" onclick="copy();"></i>
         </div>
 
-        <label for="red"> Red: </label>
+        <label for="red"> Red : <span id="r_val"></span></label>
         <input type="range" name="red" id="red" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
-        <label for="red"> Green: </label>
+        <label for="green"> Green : <span id="g_val"></span></label>
         <input type="range" name="green" id="green" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
-        <label for="red"> Blue: </label>
+        <label for="blue"> Blue : <span id="b_val"></span></label>
         <input type="range" name="blue" id="blue" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
         <div class="color-option">
@@ -77,7 +77,6 @@
             document.body.style.backgroundColor = color;
             // document.getElementById("copy-code").style.color = color;
             bright(red.value, green.value, blue.value);
-
         }
 
         // Function to generate random number 
@@ -119,12 +118,21 @@
 
         }
         function RGB(r, g, b) {
+            $('#r_val').html(r);
+            $('#g_val').html(g);
+            $('#b_val').html(b);
+
             return 'rgb(' + r + ',' + g + ',' + b + ')';
         }
         function HEX(r, g, b) {
             r = toHex(parseInt(r));
             g = toHex(parseInt(g));
             b = toHex(parseInt(b));
+
+            $('#r_val').html(r);
+            $('#g_val').html(g);
+            $('#b_val').html(b);
+
             return "#" + r + g + b;
         }
         function toHex(n) {

@@ -98,7 +98,7 @@
     display: flex;
     align-items: center;
     height: 10%;
-    width: 65%;
+    width: 75%;
     padding: 0px 5px;
     border-radius: 50px;
     overflow: hidden;
@@ -153,7 +153,9 @@
 .color-option {
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
     justify-content: space-evenly;
+    height: 15%;
     width: 70%;
     /* border: 2px solid red; */
 }
@@ -253,7 +255,7 @@
 
 .slider {
     -webkit-appearance: none;
-    width: 55%;
+    width: 65%;
     height: 5px;
     border-radius: 5px;
     background: #d3d3d3;
