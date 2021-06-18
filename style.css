@@ -93,14 +93,48 @@
     }
 }
 
-#rgb_val {
+#result {
+    position: relative;
+    display: flex;
+    align-items: center;
     height: 10%;
-    width: 60%;
-    font-size: 1.3rem;
+    padding: 0px 5px;
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: #fff;
+    font-size: 1.4rem;
+    /* border: 2px solid red; */
+}
+
+#rgb_val {
+    height: 100%;
+    /* width: 60%; */
+    font-size: inherit;
     text-align: center;
     border: none;
     border-radius: 50px;
     outline: none;
+}
+
+#copy-code {
+    /* float: right; */
+    position: absolute;
+    right: 4%;
+    /* font-size: inherit; */
+    font-size: calc(100% + 5px);
+    /* font-weight: bold; */
+    color: #000;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: center;
+    outline: none;
+}
+
+#copy-code:active, #copy-code:focus {
+    font-weight: bold;
 }
 
 #copy-btn {
@@ -134,6 +168,9 @@
 }
 
 @media (min-width: 270px) {
+    #result {
+        font-size: 0.9rem;
+    }
     #copy-btn {
         font-size: 0.7rem;
     }
@@ -143,6 +180,9 @@
 }
 
 @media (min-width: 310px) {
+    #result {
+        font-size: 1rem;
+    }
     #copy-btn {
         font-size: 0.7rem;
     }
@@ -152,6 +192,9 @@
 }
 
 @media (min-width: 350px) {
+    #result {
+        font-size: 1.05rem;
+    }
     #copy-btn {
         font-size: 0.9rem;
     }
@@ -161,11 +204,44 @@
 }
 
 @media (min-width: 400px) {
+    #result {
+        font-size: 1.1rem;
+    }
     #copy-btn {
         font-size: 1rem;
     }
     #copy-popup-text {
         font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 576px) {
+    #result {
+        font-size: 1.15rem;
+    }
+}
+
+@media (min-width: 768px) {
+    #result {
+        font-size: 1.22rem;
+    }
+}
+
+@media (min-width: 992px) {
+    #result {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    #result {
+        font-size: 1.35rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    #result {
+        font-size: 1.4rem;
     }
 }
 

@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Ubuntu:wght@300&display=swap"
         rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b4acdcaab8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="popup.css">
     <script src="script.js"></script>
     <style>
@@ -34,7 +35,10 @@
     <!-- <p id="test"></p> -->
     <div class="box">
         <label for="rgb_val"> Result: </label>
-        <input type="text" name="result" id="rgb_val" value="rgb(255,255,255)" readonly>
+        <div id="result">
+            <input type="text" name="result" id="rgb_val" value="rgb(255,255,255)" readonly>
+            <i class="far fa-copy" id="copy-code" onclick="copy();"></i>
+        </div>
 
         <label for="red"> Red: </label>
         <input type="range" name="red" id="red" value="127" min="0" max="255" class="slider" oninput="show_color()">
@@ -45,7 +49,7 @@
         <label for="red"> Blue: </label>
         <input type="range" name="blue" id="blue" value="127" min="0" max="255" class="slider" oninput="show_color()">
 
-        <button id="copy-btn" onclick="copy();"> Copy </button>
+        <button id="copy-btn"> Copy </button>
     </div>
     <span id="copy-popup-text"> Copied to Clipboard 👍 </span>
 
@@ -83,7 +87,7 @@
             navigator.clipboard.writeText(color);
         }
         $(document).ready(function () {
-            $("#copy-btn").click(function () {
+            $("#copy-code").click(function () {
                 $("#copy-popup-text").fadeIn(1000);
                 setTimeout(() => {
                     $("#copy-popup-text").fadeOut(1000);
