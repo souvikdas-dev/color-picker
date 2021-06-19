@@ -131,9 +131,9 @@
     background-color: transparent;
 }
 
-#copy-code:active {
+/* #copy-code:active {
     font-weight: bold;
-}
+} */
 
 #copy-popup-text {
     display: none;
