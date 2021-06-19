@@ -169,14 +169,17 @@
     padding: 5px 15px;
     font-size: 1rem;
     font-weight: bold;
-    /* color: var(--dyncolor); */
     cursor: pointer;
+    text-align: center;
+    outline: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    text-align: center;
-    outline: none;
+}
+
+.color-btn:active {
+    cursor: pointer;
 }
 
 @media (min-width: 270px) {
