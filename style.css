@@ -131,7 +131,7 @@
     background-color: transparent;
 }
 
-#copy-code:active, #copy-code:focus {
+#copy-code:active {
     font-weight: bold;
 }
 
