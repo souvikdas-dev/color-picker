@@ -25,7 +25,7 @@
     </style>
 </head>
 
-<body>
+<body onload="rand()">
     <div class="des">
         <h1>Color Picker</h1>
         <h4>Beta Version</h4>
@@ -56,25 +56,26 @@
 
     <script>
         const root = document.querySelector(":root");
-        var red = document.getElementById("red");
-        var green = document.getElementById("green");
-        var blue = document.getElementById("blue");
-        var output = document.getElementById("rgb_val");
+        const red = document.getElementById("red");
+        const green = document.getElementById("green");
+        const blue = document.getElementById("blue");
+        const output = document.getElementById("rgb_val");
         var color;
         var code = RGB;
 
-        red.value = randomNo(0, 255);
-        green.value = randomNo(0, 255);
-        blue.value = randomNo(0, 255);
-        show_color();
+        rand = () => {
+            red.value = randomNo(0, 255);
+            green.value = randomNo(0, 255);
+            blue.value = randomNo(0, 255);
+            show_color();
+        }
 
         function show_color() {
-            // var color = rgb(red, green, blue);
             color = code(red.value, green.value, blue.value);
             output.value = color;
             document.body.style.backgroundColor = color;
-            // document.getElementById("copy-code").style.color = color;
-            bright(red.value, green.value, blue.value);
+            document.getElementById("copy-code").style.color = color;
+            dyn_color();
         }
 
         // Function to generate random number 
@@ -96,15 +97,22 @@
             });
         });
 
-        function bright(r, g, b) {
-            var br = (0.21 * r) + (0.72 * g) + (0.07 * b);
-            // document.getElementById("test").innerHTML = br;
-            if (br < 56) {
+        function dyn_color() {
+            // document.getElementById("test").innerHTML = brightness();
+            if (brightness() < 56) {
                 root.style.setProperty('--dyncolor', '#fff');
             }
             else {
                 root.style.setProperty('--dyncolor', '#000');
             }
+
+            if (brightness() > 190) {
+                document.getElementById("copy-code").style.color = '#000';
+
+            }
+        }
+        function brightness() {
+            return ((0.21 * red.value) + (0.72 * green.value) + (0.07 * blue.value));
         }
         shiftHEX = () => {
             code = HEX;
@@ -113,7 +121,6 @@
         shiftRGB = () => {
             code = RGB;
             show_color();
-
         }
         function RGB(r, g, b) {
             $('#r_val').html(r);
