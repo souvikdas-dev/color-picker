@@ -122,18 +122,22 @@
     font-size: calc(100% + 5px);
     color: #000;
     cursor: pointer;
+    cursor: -webkit-grab;
+    cursor: grab;
+    text-align: center;
+    outline: none;
+    background-color: transparent;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    text-align: center;
-    outline: none;
-    background-color: transparent;
 }
 
-/* #copy-code:active {
-    font-weight: bold;
-} */
+#copy-code:active {
+    /* font-weight: bold; */
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
 
 #copy-popup-text {
     display: none;
