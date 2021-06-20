@@ -169,7 +169,7 @@
     padding: 5px 15px;
     font-size: 1rem;
     font-weight: bold;
-    cursor: url("/cursor/pointer.png"), auto;
+    cursor: url("cursor/pointer.png"), auto;
     text-align: center;
     outline: none;
     border: none;
@@ -181,7 +181,7 @@
 }
 
 .color-btn:active {
-    cursor: url("/cursor/pointer1.png"), auto;
+    cursor: url("cursor/pointer1.png"), auto;
 }
 
 @media (min-width: 270px) {
