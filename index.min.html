@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Color Picker</title><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><link rel="stylesheet" href="main.min.css"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Ubuntu:wght@300&display=swap" rel="stylesheet"><script src="https://kit.fontawesome.com/b4acdcaab8.js" crossorigin="anonymous"></script><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Ubuntu,sans-serif;height:100%;width:100%}</style></head><body onload="rand()"><div class="des"><h1>Color Picker</h1><h4>Beta Version</h4></div><!-- <p id="test"></p> --><div class="box"><label for="rgb_val">Result:</label><div id="result"><input type="text" name="result" id="rgb_val" value="rgb(255,255,255)" readonly> <i class="far fa-copy" id="copy-code" onclick="copy()"></i></div><label for="red">Red : <span id="r_val"></span></label> <input type="range" name="red" id="red" value="127" min="0" max="255" class="slider" oninput="show_color()"> <label for="green">Green : <span id="g_val"></span></label> <input type="range" name="green" id="green" value="127" min="0" max="255" class="slider" oninput="show_color()"> <label for="blue">Blue : <span id="b_val"></span></label> <input type="range" name="blue" id="blue" value="127" min="0" max="255" class="slider" oninput="show_color()"><div class="color-option"><button class="color-btn" onclick="shiftHEX()">HEX</button> <button class="color-btn" onclick="shiftRGB()">RGB</button></div></div><span id="copy-popup-text">Copied to Clipboard 👍</span><script>const root = document.querySelector(":root");
+        const red = document.getElementById("red");
+        const green = document.getElementById("green");
+        const blue = document.getElementById("blue");
+        const output = document.getElementById("rgb_val");
+        var color;
+        var code = RGB;
+
+        rand = () => {
+            red.value = randomNo(0, 255);
+            green.value = randomNo(0, 255);
+            blue.value = randomNo(0, 255);
+            show_color();
+        }
+
+        function show_color() {
+            color = code(red.value, green.value, blue.value);
+            output.value = color;
+            document.body.style.backgroundColor = color;
+            document.getElementById("copy-code").style.color = color;
+            dyn_color();
+        }
+
+        // Function to generate random number 
+        function randomNo(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        copy = () => {
+            navigator.clipboard.writeText(color);
+        }
+        $(document).ready(function () {
+            $("#copy-code").click(function () {
+                $("#copy-popup-text").fadeIn(700);
+                setTimeout(() => {
+                    $("#copy-popup-text").fadeOut(700);
+                }, 1000);
+            });
+        });
+
+        function dyn_color() {
+            // document.getElementById("test").innerHTML = brightness();
+            if (brightness() < 56) {
+                root.style.setProperty('--dyncolor', '#fff');
+            }
+            else {
+                root.style.setProperty('--dyncolor', '#000');
+            }
+
+            if (brightness() > 190) {
+                document.getElementById("copy-code").style.color = '#000';
+
+            }
+        }
+        function brightness() {
+            return ((0.21 * red.value) + (0.72 * green.value) + (0.07 * blue.value));
+        }
+        shiftHEX = () => {
+            code = HEX;
+            show_color();
+        }
+        shiftRGB = () => {
+            code = RGB;
+            show_color();
+        }
+        function RGB(r, g, b) {
+            $('#r_val').html(r);
+            $('#g_val').html(g);
+            $('#b_val').html(b);
+
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+        function HEX(r, g, b) {
+            r = toHex(parseInt(r));
+            g = toHex(parseInt(g));
+            b = toHex(parseInt(b));
+
+            $('#r_val').html(r);
+            $('#g_val').html(g);
+            $('#b_val').html(b);
+
+            return "#" + r + g + b;
+        }
+        function toHex(n) {
+            var hex = n.toString(16);
+            while (hex.length < 2) { hex = "0" + hex; }
+            return hex;
+        }</script><footer><code>print("Made with ❤ by Souvik")</code></footer></body></html>
